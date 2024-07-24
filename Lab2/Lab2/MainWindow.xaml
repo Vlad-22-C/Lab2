@@ -1,0 +1,40 @@
+﻿<Window x:Class="Lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Работа с базами данных" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="10">
+            <TextBlock Text="ID студента"/>
+            <TextBox x:Name="studentIDTextBox" Margin="10,0,286,0"/>
+            <TextBlock Text="ФИО"/>
+            <TextBox x:Name="fullNameTextBox" Margin="10,0,286,0"/>
+            <TextBlock Text="Номер телефона"/>
+            <TextBox x:Name="phoneNumberTextBox" Margin="10,0,286,0"/>
+            <TextBlock Text="Оценка по Физике"/>
+            <TextBox x:Name="physicsGradeTextBox" Margin="10,0,286,0"/>
+            <TextBlock Text="Оценка по Математике"/>
+            <TextBox x:Name="mathGradeTextBox" Margin="10,0,286,0"/>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button Content="Добавить" Width="100" Click="AddButton_Click"/>
+                <Button Content="Изменить" Width="100" Click="UpdateButton_Click" Margin="10,0,0,0"/>
+                <Button Content="Удалить" Width="100" Click="DeleteButton_Click" Margin="10,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <DataGrid x:Name="studentsDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID студента" Binding="{Binding StudentID}" Width="*"/>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" Width="*"/>
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}" Width="*"/>
+                <DataGridTextColumn Header="Оценка по Физикеe" Binding="{Binding PhysicsGrade}" Width="*"/>
+                <DataGridTextColumn Header="Оценка по Математике" Binding="{Binding MathGrade}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
